@@ -84,10 +84,10 @@ printNameAndRole('abhinav', 'instructor'); //function calling // function invoca
 
 // first class functions
 // in js functions are first class citizens
-// in a  language  functions are first class function when you can do following
+// in a language  functions are first class function when you can do following
 
 
-// 1. when you can assign functions as variables
+// 1. when you can assign functions as value to variables
 // 2. you can pass functions as function parameters to another functions.
 // 3. you  can return function from a function.
 
