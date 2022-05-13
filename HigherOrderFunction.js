@@ -1,21 +1,38 @@
 // Higher order functions are functions where we can pass functions as arguments 
 // or we can return function from a function
-/*
+
 // here --> Outer is hof
-function Outer(oneFunction){
-    let a = 10; 
-    let b = 20;
-    console.log(a+b);
-    oneFunction()
-    
+function Outer(test1, test2){
+    let adfvdfg = 10; 
+    let bfgefgerf = 20;
+    console.log(adfvdfg+bfgefgerf);
+    //here test 1 and test2 are callbacks or callback functions
+    test1();
+    console.log('');
+    test2();
 }
 
-// function printAddress(){
-//     console.log('Address ');
-//     console.log('city is Bangalore');
-//     console.log('pin is 234235');
-//     console.log('state is katnataka');
-// }
+Outer(printFullNameAndRole, printAddress);
+
+console.log('12132314');
+
+
+function printAddress(){
+    console.log('Address ');
+    console.log('city is Bangalore');
+    console.log('pin is 234235');
+    console.log('state is katnataka');
+}
+
+function printFullNameAndRole(){
+    console.log('Abhinav ');
+    console.log('Instructor');
+}
+
+/*
+Outer(printAddress);
+
+
 
 Outer(printAddress); //
 
@@ -52,7 +69,7 @@ function printDetails(){
 var output = printDetails()
 
 console.log(output);
-*/
+
 // console.log(printDetails());
 
 function PrintName(){
@@ -61,7 +78,6 @@ function PrintName(){
         console.log('address is delhi');
         return 10
     }
-
 }
 
 var address = PrintName(); 
@@ -81,3 +97,4 @@ console.log(result);
 
 
 // console.log(PrintName()());
+*/
