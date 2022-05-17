@@ -61,5 +61,24 @@ switch(person){
 }
 */
 
+//loops
+//for loop
+for(var i=0;i<5;i++){
+    console.log(i);
+}
 
+//while
+let y =20
 
+while(y>30){
+    console.log(y);
+    y--
+}
+
+do{
+    console.log('this is do while');
+} while(y>30)
+
+//forEach
+// for of
+// for in
