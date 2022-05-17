@@ -35,26 +35,26 @@ function multiplier(){
     var c = 20;
 
     function printA(){
-        a = a+b;
+        a = a+1;
         console.log(a);
     }
 
-    function printB(){
-        a = a+b;
-        console.log(a);
-    }
+    // function printB(){
+    //     a = a+b;
+    //     console.log(a);
+    // }
 
-    printB()
+    // printB()
 
-    function printC(){
-        a = a+b;
-        console.log(a);
-    }
+    // function printC(){
+    //     a = a+b;
+    //     console.log(a);
+    // }
     
-    printC()
+    // printC()
 
     console.log(b);
-    // return printA
+    return printA
 }
 
 // EC
@@ -80,6 +80,7 @@ console.log(result);
 // let x = 10
 // let x = 10
 
-result();
+// result();
 
 // undefined()
+console.log(0+1);
