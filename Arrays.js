@@ -171,7 +171,7 @@ console.log(newArr);
 
 console.log(arr);
 
-*/
+
 
 let arr = [3,5,7,20]
 
@@ -182,8 +182,9 @@ let newArrayMap = arr.map(function(anything){
 
 console.log(newArrayMap);
 // console.log('original array');
-// console.log(arr);
+console.log(arr);
 
+//internal implementation of map
 function double(arg){
     return arg*2
 }
@@ -194,6 +195,174 @@ for(let i = 0; i<arr.length; i++){
     let newel = double(arr[i])
     newArr.push(newel)
 }
+
+
+// return element multiplied by its index 
+
+
+
+// arr[0] = arr[0]*10
+// arr[1] = arr[1]*10
+// arr[2] = arr[2]*10
+// arr[3] = arr[3]*10
+// arr[4] = arr[4]*10 
+
+
+
+// var handler = function(el, i, some){
+//     console.log(some);
+//     return el*i
+// }
+
+let arr1 = [14,43,9,46,67]
+
+function handler(el){
+    return el*10
+}
+
+let outputarr = arr1.map(handler)
+
+console.log(outputarr);
+console.log(arr1);
+
+
+//doesnt return a new array
+// let arr12 = arr1.forEach(handler) //undefined
+
+let newArr= [];
+arr1.forEach(function(el,i,arr){
+    newArr.push(el*10)
+})
+console.log(newArr);
+
+
+
+//filter
+
+let original = [2011, 2051, 2022, 2003, 1999, 1857];
+
+let filteredArr = original.filter(function(el){
+    return el>2010 //2003 > 2010
+})
+
+// let filteredArr = original.map(function(el){
+//     return el>2010 //2003 > 2010
+// })
+
+console.log(filteredArr);
+
+
+console.log('original');
+console.log(original);
+
+
+let qualified = [15, 17, 12, 56, 67, 100]
+
+let elementIndex = qualified.findIndex(function(age){
+    return age>18
+})
+
+let element = qualified.find(function(age){
+    return age>18
+})
+
+console.log(element);
+
+//find --> 
+//every --->
+//findIndex --->
+//some --->
+//reduce --->
+
+
+
+// spread operator in Javascript
+
+
+
+// for(let i =0;i<arr1.length; i++){
+//     arr2.push(arr1[i])
+// }
+
+// let arr2 should be [2,3,6,7,45,6,7,2,389]
+
+let arr3 = []
+
+let newarr = arr1.concat(arr2);
+
+console.log(arr1);
+console.log(arr2);
+
+console.log(newarr);
+
+
+
+
+let arr1 = [45,6,7,2,389]
+
+let arr2 = [2,3,6,7]
+
+console.log(arr1);
+console.log(...arr1);
+
+
+let arr3 = [...arr2,...arr1]
+
+console.log(arr2);
+
+console.log(arr3);
+*/
+
+// task: print even no from 2 to 16 in an array
+// end res = [2,4,6,8,10,12,14,16]
+
+let arr = [4,6,8,10,12]
+
+let arr1 = [...arr,14,16]
+
+let even = [2,...arr,...arr1]
+
+// console.log(...arr);
+
+// console.log(1,2,3,4,5);
+
+// console.log(even);
+
+
+let quality1 = {
+    name: 'abhinav',
+    role: 'instrauctor',
+    dob: 23,
+}
+
+let quality2 = {
+    place: 'Delhi',
+    alive: true,
+    teachingDays: ['mon', 'tues', 'wed']
+}
+
+let allqulities = {...quality1, ...quality2, teachingtime: 9}
+
+
+
+// console.log(person1.name);
+// console.log(person1.role);
+// console.log(person1.dob);
+// console.log(person1.name);
+// console.log(person1.teachingDays);
+
+console.log({...quality1});
+console.log(quality2);
+
+console.log(allqulities);
+
+
+
+
+
+
+
+
 
 
 
