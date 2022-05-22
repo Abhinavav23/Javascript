@@ -112,7 +112,7 @@ console.log(y);
 
 // reference types
 // objects , arrays and functions
-*/
+
 
 
 
@@ -142,6 +142,90 @@ console.log(arr1 === arr3);
 // arr1 = #aa102
 // arr2 = memory address ref #aa101 
 // arr3 = memory address ref #aa100 
+
+
+let arrOne = [3,4,5]
+
+let arrTwo = [3,4,5]
+
+let arrThree = arrOne
+
+
+// mark and sweep algo
+
+// memory address
+// #10001 --->[3,4,5]
+// #10002 ---->[3,4,5]
+// #10003 ----> []
+
+
+// mem creation
+// arrOne = #10003
+// arrTwo = #10002
+// arrThree = #10001
+
+
+arrOne = [2,3,4] // 
+
+console.log(arrOne);
+console.log(arrThree);
+
+console.log(arrOne === arrThree);
+
+
+// arrOne[i] === arrThree[i]
+
+
+// console.log(arrOne === arrTwo); //false
+// console.log(arrOne === arrThree); //  true
+
+// console.log(arrOne);
+// console.log(arrTwo);
+// console.log(arrThree);
+
+// arrThree.push(100); 
+// arrOne.push(200);
+
+// console.log(arrOne);
+// console.log(arrThree);
+
+*/
+
+var nameOfPerson = 'something'
+var YearOfBirth = 'year'
+
+//Abstraction
+function Person(name, YearOfBirth){
+    this.nameOfPerson =  name ;
+    this.YearOfBirth = YearOfBirth;
+    
+    //Abstraction
+    const CalculateAge = function(){
+        return 2022 - YearOfBirth
+    }
+
+    let prinDetails = function(){
+        return 'This is '+name +'having age '+this.age
+    }
+
+    this.age = CalculateAge()
+    this.details = prinDetails()
+}
+
+let Ram = new Person('Ram', 1995);
+console.log(Ram);
+console.log(Ram.nameOfPerson);
+// console.log(Ram.YearOfBirth);
+console.log(Ram.age);
+// console.log(Ram.CalculateAge); //cant be accessed hence undefined
+// console.log(sita); //not defined
+
+let Lakshman = new Person('Lakshman', 1997);
+console.log(Lakshman.nameOfPerson);
+// console.log(Lakshman.YearOfBirth);
+console.log(Lakshman.age);
+// console.log(Lakshman.CalculateAge); can't be accessed
+
 
 
 
