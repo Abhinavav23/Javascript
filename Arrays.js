@@ -356,6 +356,42 @@ console.log(quality2);
 
 console.log(allqulities);
 
+let array = [];
+array.push()
+console.log(array);
+console.log(Array.prototype);
+
+// Array.prototype.mypush = 'ifvdsfgsgfdgsh'
+
+console.log(arr.mypush);
+
+let arr2 = [1,4,56,79]
+
+console.log(arr2.mypush);
+
+Array.prototype.slice = function(){
+    console.log('sfgdgd');
+    return 4
+}
+
+console.log(arr2.slice());
+
+// function test(){
+
+// }
+// // console.log(test.__proto__);
+// // console.log(Function.prototype);
+
+
+// let obj = {
+//     name: 'abhi',
+//     printName: function(){
+//         console.log('Abhinav');
+//     }
+// }
+
+// console.log(obj);
+
 
 
 
