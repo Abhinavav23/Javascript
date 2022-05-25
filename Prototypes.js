@@ -45,7 +45,7 @@ let obj = {
 let obj2 = {
     school: 'newton'
 }
-*/
+
 
 function Person(name){
     this.name = name;
@@ -93,12 +93,12 @@ console.log(Shyam.CalculateSalary());
 
 
 
-
 function Employee(role){
     this.role = role;
 }
+
 Employee.prototype = Object.create(Person.prototype);
-Employee.prototype.Property1 = 'sdfsdfs'
+Employee.prototype.Property1 = 'sdfsdfs';
 
 // Employee.prototype = Object.create(Person.prototype);
 
@@ -110,3 +110,48 @@ console.log(abhinav.Property2);
 Array.prototype.slice = function(){
    
 }
+
+*/
+
+let obj1 = {
+    name1: 'name1',
+    add1: 'add1'
+}
+
+// obj1.prototype.someting = 'something'
+
+let obj2 = {
+    name2: 'name2',
+    add2: 'add2',
+    print: function(){
+        console.log('printing');
+    }
+}
+
+let obj3 = {
+    name3: 'name'
+}
+
+Object.setPrototypeOf(obj1, obj2);
+
+// obj1.__proto__ = obj2
+
+// obj2.__proto__ = obj1
+
+// cyclic not possible
+// Object.setPrototypeOf(obj2, obj1);
+
+
+console.log(obj1.add2);
+// console.log(obj1.print());
+
+// console.log(obj1);
+console.log(obj1.__proto__.__proto__);
+console.log(obj2);
+
+
+let arr = [1,2,3];
+console.log(arr.__proto__);
+console.log(Array.prototype);
+
+
