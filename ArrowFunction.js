@@ -72,7 +72,12 @@ console.log(add(2,3));
 
 console.log(console);
 // console.clear()
-*/
+
+
+
+// In Normal function this keyword refers to the caller but if we have nested functions then it refers to the window objects
+// 
+
 
 var a = 10;
 
@@ -83,29 +88,68 @@ function CalculateAge(yearOfBirth){
     function test(){
         console.log(this);
         console.log('calling test');
+        function test2(){
+            console.log(this);
+        }
+        test2();
     }
     test();
     return 2022 - yearOfBirth;
 }
 
-var obj1 = {
-    a: 20,
-    CalculateAge: function(yearOfBirth){
-        console.log(this);
-        function test(){
-            console.log(this);
-            console.log('calling test');
+// let yob = 1990
+
+
+var person = {
+    name: 'Abhinav',
+    yob: 1990,
+
+    CalculateAge: function(){
+        console.log(this); // person
+
+        console.log(2022-this.yob);
+
+        // let myThis = this // closure ---> lexical scoping
+
+
+        // function calculatTimeLeftForRetirement(){
+        //     console.log(this);// window
+        //     // let age = 2022-myThis.yob
+        //     // console.log(60-age);
+
+        //     // let test2 = () => {
+        //     //     console.log(this);
+        //     //     console.log('test2');
+        //     // }
+        //     // test2();
+        // }
+
+        let calculatTimeLeftForRetirement = () => {
+            console.log(this); // person
+            let age = 2022 - this.yob
+            console.log(60-age);
+            let test2  = () => {
+                console.log(this); //person
+            }
+            test2();
+            function test3(){
+                console.log(this);
+            }
+            test3()
         }
-        test();
-        return 2022 - yearOfBirth
+        calculatTimeLeftForRetirement()
     }
 }
 
+// 60 years
+
 // CalculateAge(1990);
-window.CalculateAge(1990);
 
 
-obj1.CalculateAge(1990);
+// window.CalculateAge(1990);
+
+
+person.CalculateAge(1990);
 
 // window.CalculateAge(1990);
 
@@ -115,3 +159,48 @@ obj1.CalculateAge(1990);
 // }
 
 // CalculateDays(23);
+
+
+let myfunction = () => {
+    console.log(this); // window
+
+    function level1(){
+        console.log(this); //window
+    }
+
+    let level1Arrow = () => {
+        console.log(this); //window
+    }
+
+    level1Arrow();
+    level1();
+}
+myfunction();
+*/
+
+
+let obj1 = {
+    a: 10,
+    b: 20,
+    c: this,
+    d: function(){
+        console.log(this);
+    },
+    test1: () => {
+        console.log(this); //window
+        console.log(this.a); //
+        console.log(this.b); //
+    }
+}
+
+
+// function person(sdvbhshdv,dfgg){
+//     this.
+// }
+
+
+
+// let ram = new person(gn)
+// obj1.test1()
+console.log(obj1.c);
+// console.log(obj1.d());
