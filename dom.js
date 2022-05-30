@@ -79,7 +79,7 @@ for(let i = 0; i<listItems.length;i++){
     listItems[i].innerText = productList[i] +(i+1);
 }
 
-let div = document.querySelector('div.card.content');
+let div = document.querySelector('div.card.content.that');
 
 // let footer = document.createTextNode('copyright all right reserved');
 
@@ -213,8 +213,22 @@ let th = document.createElement('th');
 tr.appendChild(th);
 
 th.innerText = 'Name'
-
 */
+
+
+
+//Dom navigation
+
+let outer = document.querySelector('.outer-container');
+
+// console.log(outer.parentElement); //body
+// // console.log(outer.childNodes); //htmlcollection
+// let container = outer.children
+
+// console.log(outer.children[0].children[1]);
+
+console.log(outer.firstElementChild.firstElementChild);
+console.log(outer.lastElementChild.lastElementChild);
 
 
 
