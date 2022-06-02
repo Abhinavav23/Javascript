@@ -70,11 +70,15 @@ let set3 = setTimeout(printOne, 2000);
 console.log(set3);
 let set4 = setTimeout(printTwo, 1000);
 console.log(set4);
-*/
+
+
+const { log } = require("async");
 
 function print(val){
     console.log(val);
 }
+
+// clearTimeout(set1)
 
 //setimeout arguments
 // 1. callback function
@@ -119,3 +123,156 @@ setTimeout(() => {
 
 // pause
 // clear
+
+// facebook login
+// after clicking on login button
+// 1. check that user is a valid user
+// 2. get deatils of the user
+
+
+
+function checkValidUser(username){
+    // 
+    if(username === 'abhinav'){
+        console.log('valid user');
+        setTimeout(getDetails, 1000)
+    }else{
+        console.log('invalid user');
+    }
+}
+
+function getDetails(){
+    // 
+    console.log('details are .....');
+    setTimeout(getMessages, 1000)
+}
+
+function getMessages(){
+    console.log('messages are this');
+}
+
+
+setTimeout(checkValidUser, 1000)
+setTimeout(checkValidUser, 2000);
+
+
+let username = document.getElementById('user');
+let pass = document.getElementById('pwd');
+
+
+//callback hell
+
+// 1. dependable Code
+// 2. callbacks has to be called on e fater the other
+// 3. it forms an arrow like structure by creating a nesting of callbacks
+// 4. it is very unmanagable from and very less readable as well
+// 5. to solve above problem we have promises
+
+setTimeout((username, pwd) => {
+    console.log('username',username);
+    console.log('password',pwd);
+    //database check
+    let userId = '123'
+    setTimeout((userid) => {
+        console.log('id: '+userid);
+        // databse check frienlist
+        let friendlist = ['ram', 'shyam', 'Lakshman']
+        setTimeout((friendlist) => {
+            //databse check getmessage
+            console.log(username);
+            for(let i=0; i<friendlist.length;i++){
+                console.log(friendlist[i]);
+                setTimeout((friendName) => {
+                    //ger from databse
+                    console.log(friendName + ' meaage');
+                }, i*1000, friendlist[i])
+                console.log('message');
+            }
+        }, 2000, friendlist )
+    }, 2000, userId)
+}, 2000, 'abhinav', '12345')
+*/
+
+// setTimeout(fetchusername, 2000)
+
+
+
+// for(var i=1; i<6; i++){
+//     setTimeout(() => {
+//         console.log(i);
+//     },i*1000)
+// }
+
+//question ---> why ????
+
+
+// promises ---> 
+
+// state --> pending ---> fullfilled  ---> Rejected
+// outcome  -> success or failure
+
+//creation of promises
+
+let fetchUserId = (username) => {
+    return new Promise((resolve, reject) => {
+        if(username === 'abhinav') {
+            console.log('successfully fetched');
+            resolve('123') //success
+        } else{
+            console.log('not fetched');
+            reject('user not found') //error or failure
+        }
+    })
+}
+
+let getFriendList = (userId) => {
+    return new Promise((res, rej) => {
+        if(userId === '123'){
+            let friendlist = ['ram', 'shyam', 'Lakshman']
+            res(friendlist)
+        } else{
+            rej('userId is not valid')
+        }
+    })
+}
+
+let getMessages = (friendList) => {
+    return new Promise((res, rej) => {
+        if(friendList){
+            let obj = {}
+            for(let i=0; i<friendList.length;i++){
+                obj[friendList[i]] = 'msg for' +friendList[i]
+            }
+            res(obj)
+        }
+        rej('friends not found')
+    })
+}
+
+// handling of promises
+
+fetchUserId('abhinav')
+.then((id) => {
+    console.log('successfuly fetched id');
+    console.log(id);
+})
+.catch((e) => {
+    console.log('unsuccessful in fetching id');
+    console.log(e);
+})
+
+fetchUserId('Suraj')
+.then((id) => {
+    console.log('successfuly fetched id');
+    console.log(id);
+})
+.catch((e) => {
+    console.log('unsuccessful in fetching id');
+    console.log(e);
+})
+
+
+
+
+
+
