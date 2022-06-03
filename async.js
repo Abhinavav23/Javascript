@@ -251,28 +251,138 @@ let getMessages = (friendList) => {
 
 // handling of promises
 
+// fetchUserId('abhinav')
+// .then((id) => {
+//     console.log('successfuly fetched id');
+//     console.log(id);
+// })
+// .catch((e) => {
+//     console.log('unsuccessful in fetching id');
+//     console.log(e);
+// })
+
+// fetchUserId('Suraj')
+// .then((id) => {
+//     console.log('successfuly fetched id');
+//     console.log(id);
+// })
+// .catch((e) => {
+//     console.log('unsuccessful in fetching id');
+//     console.log(e);
+// })
+
+function throwPartyPopper(){
+
+}
+
+
+//chaining of promises
 fetchUserId('abhinav')
 .then((id) => {
     console.log('successfuly fetched id');
     console.log(id);
+    throwPartyPopper();
+    return getFriendList('123')
+})
+.then((fList) => {
+    console.log(fList);
+    return getMessages(fList);
+})
+.then((mesg) => {
+    console.log(mesg);
 })
 .catch((e) => {
-    console.log('unsuccessful in fetching id');
     console.log(e);
+    if(e==='user not found'){
+        console.log('failed at step 1' );
+    }else if(e==='userId is not valid'){
+        console.log('failed at step 2' );
+    } else{
+        console.log('friends not found');
+    }
+})
+.finally(() => {
+    console.log('finished');
 })
 
-fetchUserId('Suraj')
-.then((id) => {
-    console.log('successfuly fetched id');
-    console.log(id);
-})
-.catch((e) => {
-    console.log('unsuccessful in fetching id');
-    console.log(e);
-})
+
+
+// for(let i= 0; i<5;i++){
+//     setInterval(() => {
+//         console.log(i);
+//     },1000)
+// }
 
 
 
+// webAPis
+// () => {
+//     console.log('0');
+// }, 1000
+
+
+// () => {
+// console.log('1');
+// ,1000)
+
+// () => {
+//     console.log('2');
+//     ,1000)
+
+// () => {
+// console.log('3');
+// ,1000)
+
+// () => {
+// console.log('4');
+// ,1000)
+
+console.log('end');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Assignment -- Whack a mole
+// let squareCollection = document.getElementsByClassName('square')
+// let index = Math.floor(Math.random()*10);
+
+// let mole = <img></img>
+// squareCollection[index].innerHtml = mole
+
+// function selectDiv(){
+//     return squareCollection[index].innerHtml
+// }
+
+// let getDiv = selectDiv()
+
+// div.addEventListener('click', (e) => {
+//     let getDiv = selectDiv()
+//     e.target = getDiv
+
+// })
+
+// setInterval(() => {
+//     let getdiv = selectDiv();
+// },1000)
+
+// function matchmolewithdiv(){
+
+// }
 
 
 
