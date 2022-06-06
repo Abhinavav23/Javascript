@@ -191,7 +191,7 @@ setTimeout((username, pwd) => {
         }, 2000, friendlist )
     }, 2000, userId)
 }, 2000, 'abhinav', '12345')
-*/
+
 
 // setTimeout(fetchusername, 2000)
 
@@ -212,6 +212,7 @@ setTimeout((username, pwd) => {
 // outcome  -> success or failure
 
 //creation of promises
+*/
 
 let fetchUserId = (username) => {
     return new Promise((resolve, reject) => {
@@ -241,7 +242,7 @@ let getMessages = (friendList) => {
         if(friendList){
             let obj = {}
             for(let i=0; i<friendList.length;i++){
-                obj[friendList[i]] = 'msg for' +friendList[i]
+                obj[friendList[i]] = 'msg for ' +friendList[i]
             }
             res(obj)
         }
@@ -271,39 +272,83 @@ let getMessages = (friendList) => {
 //     console.log(e);
 // })
 
-function throwPartyPopper(){
-
-}
-
 
 //chaining of promises
-fetchUserId('abhinav')
-.then((id) => {
-    console.log('successfuly fetched id');
-    console.log(id);
-    throwPartyPopper();
-    return getFriendList('123')
-})
-.then((fList) => {
-    console.log(fList);
-    return getMessages(fList);
-})
-.then((mesg) => {
-    console.log(mesg);
+// fetchUserId('abhinav')
+// .then((id) => {
+//     console.log('successfuly fetched id');
+//     console.log(id);
+//     throwPartyPopper();
+//     return getFriendList('123')
+// })
+// .then((fList) => {
+//     console.log(fList);
+//     return getMessages(fList);
+// })
+// .then((mesg) => {
+//     console.log(mesg);
+// })
+// .catch((e) => {
+//     console.log(e);
+//     if(e==='user not found'){
+//         console.log('failed at step 1' );
+//     }else if(e==='userId is not valid'){
+//         console.log('failed at step 2' );
+//     } else{
+//         console.log('friends not found');
+//     }
+// })
+// .finally(() => {
+//     console.log('finished');
+// })
+
+// calling multiple promises
+// it takes aray of promises
+// returns array of values if all the promises are successful
+// if any of the promises get failed catch block will be executed
+// if multiple promises are failing then whoever is the first one that will reach the catch block 
+
+// Promise.all([fetchUserId('abhinav'),getFriendList('123'), getMessages()])
+// .then((value) => {
+//     console.log(value);
+// })
+// .catch((error) => {
+//     console.log(error);
+// })
+
+Promise.allSettled([fetchUserId('abhinav'),getFriendList('123'), getMessages()])
+.then((data) => {
+    console.log(data);
 })
 .catch((e) => {
     console.log(e);
-    if(e==='user not found'){
-        console.log('failed at step 1' );
-    }else if(e==='userId is not valid'){
-        console.log('failed at step 2' );
-    } else{
-        console.log('friends not found');
-    }
 })
-.finally(() => {
-    console.log('finished');
+
+
+getMessages()
+.then((data) => {
+    console.log('success');
+    console.log(data);
 })
+.catch((e) => {
+    console.log('failure');
+    console.log(e);
+})
+
+// Promise.race()
+// Promise.any()
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -312,8 +357,6 @@ fetchUserId('abhinav')
 //         console.log(i);
 //     },1000)
 // }
-
-
 
 // webAPis
 // () => {
@@ -338,6 +381,64 @@ fetchUserId('abhinav')
 // ,1000)
 
 console.log('end');
+
+/*
+    for(let i=1; i<6; i++){
+        function print(i){
+            setTimeout(() => {
+                console.log(i);
+            },i*1000)
+        }
+        print(i);
+    }
+
+    console.log(i); //6 //last
+    console.log('test');
+
+    // var a = 10
+    // function test(a){
+    //     var a =20;
+    //     function test2(){
+    //         var a = 30;
+    //         console.log(a); // 30
+    //     }
+    //     console.log(a); //10
+    // }
+
+
+
+
+
+// question ---> why ????
+
+/*
+// Web Apis
+(i) => {
+    console.log(i); //1
+}
+timer = 1sec
+
+(i) => {
+    console.log(i); //2
+}
+timer = 2sec
+
+(i) => {
+    console.log(i); //3
+}
+timer = 3sec
+
+(i) => {
+    console.log(i);
+}
+timer = 4sec
+
+(i) => {
+    console.log(i);
+}
+timer = 5sec
+*/
+
 
 
 
